@@ -30,3 +30,45 @@
 *.exe
 *.out
 *.app
+#include <iostream>
+#include<algorithm>
+#include<string>  
+
+using namespace std;
+int main()
+{
+	string s,s3,t;
+	int count=0;
+	char c;
+	
+	bool found = false;
+	cin >> s;
+	s3 = s;
+		cin>>t;
+		if (s.size() != t.size())
+			cout << "No";
+		else if (s == t)
+			cout << "Yes";
+	else {
+		while (true && count<s.size()-1) {
+			string ss;
+			ss = s3;
+			c = ss[ss.size() - 1];
+			for (int j = 0; j < s.size(); j++) {
+				s3[j + 1] = ss[j];
+			}
+			s3[0] = c;
+			if (s3 == t) {
+				found = true;
+				break;
+			}
+			count++;
+		}
+		if (found)
+			cout << "Yes";
+		else
+			cout << "No";
+	}
+	
+	return 0;
+}
